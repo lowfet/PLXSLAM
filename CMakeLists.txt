@@ -16,14 +16,14 @@ include_directories( "/usr/include/eigen3" )
 find_package( OpenCV 3.1 REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 # Sophus 
-find_package( Sophus REQUIRED )
-include_directories( ${Sophus_INCLUDE_DIRS} )
+#find_package( Sophus REQUIRED )
+#include_directories( ${Sophus_INCLUDE_DIRS} )
 # Ceres
 find_package(Ceres REQUIRED)
 include_directories( ${CERES_INCLUDE_DIRS} )
 # Pangolin
-find_package(Pangolin REQUIRED)
-include_directories( ${Pangolin_INCLUDE_DIRS} )
+#find_package(Pangolin REQUIRED)
+#include_directories( ${Pangolin_INCLUDE_DIRS} )
 
 ## G2O
 #find_package( G2O REQUIRED )
@@ -31,8 +31,8 @@ include_directories( ${Pangolin_INCLUDE_DIRS} )
 
 set( THIRD_PARTY_LIBS 
         ${OpenCV_LIBS}
-        ${Sophus_LIBRARIES}
-        ${Pangolin_LIBRARIES}
+#        ${Sophus_LIBRARIES}
+#        ${Pangolin_LIBRARIES}
 #    g2o_core g2o_stuff g2o_types_sba
 )
 ############### source and test ######################
