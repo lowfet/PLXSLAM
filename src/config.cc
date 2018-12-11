@@ -12,7 +12,7 @@ namespace PLXSLAM
         if ( config_ == nullptr )
             config_ = shared_ptr<Config>(new Config);
         config_->file_ = cv::FileStorage( filename.c_str(), cv::FileStorage::READ );
-        if ( config_->file_.isOpened() == false )
+        if ( ! config_->file_.isOpened() )
         {
             std::cerr<<"parameter file "<<filename<<" does not exist."<<std::endl;
             config_->file_.release();

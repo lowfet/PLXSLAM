@@ -22,6 +22,13 @@ namespace PLXSLAM
                 fx_ ( fx ), fy_ ( fy ), cx_ ( cx ), cy_ ( cy ), depth_scale_ ( depth_scale )
         {}
 
+        void world2camera(const Mat &p_w, const Mat &T_w_c, Mat p_c);
+        void camera2world(const Mat &p_c, const Mat &T_c_w, Mat p_w);
+        //TODO use Mat or pt2d,pt3d?
+        void camera2pixel(const Mat );
+        void pixel2camera(const Mat &);
+        void pixel2world(const Mat);
+        void world2pixel();
         // coordinate transform: world, camera, pixel
 //        Vector3d world2camera( const Vector3d& p_w, const SE3& T_c_w );
 //        Vector3d camera2world( const Vector3d& p_c, const SE3& T_c_w );
