@@ -8,14 +8,14 @@
 
 // define the commonly included file to avoid a long include list
 // for Eigen
-#include <Eigen/Core>
-#include <Eigen/Geometry>
-using Eigen::Vector2d;
-using Eigen::Vector3d;
+//#include <Eigen/Core>
+//#include <Eigen/Geometry>
+//using Eigen::Vector2d;
+//using Eigen::Vector3d;
 
 // for Sophus
-#include <sophus/se3.h>
-using Sophus::SE3;
+//#include <sophus/se3.h>
+//using Sophus::SE3;
 
 // for cv
 #include <opencv2/core/core.hpp>

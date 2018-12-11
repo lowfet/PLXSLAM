@@ -2,7 +2,7 @@
 // Created by lixin on 18-12-10.
 //
 
-#include <bits/shared_ptr.h>
+//#include <shared_ptr.h>
 
 #ifndef CAMERA_HPP
 #define CAMERA_HPP
