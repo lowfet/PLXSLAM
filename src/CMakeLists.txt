@@ -1,5 +1,5 @@
 add_library(${PROJECT_NAME} SHARED
-        fram.cc
+        frame.cc
         mappoint.cc
         map.cc
         camera.cc
