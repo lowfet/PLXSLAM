@@ -20,6 +20,8 @@
 // for cv
 #include <opencv2/core/core.hpp>
 using cv::Mat;
+using cv::Point2f;
+using cv::Point3d;
 
 // std
 #include <vector>

@@ -5,9 +5,9 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "common_include.h"
-#include "frame.h"
-#include "mappoint.h"
+#include "common.hpp"
+#include "frame.hpp"
+#include "mappoint.hpp"
 
 namespace PLXSLAM
 {

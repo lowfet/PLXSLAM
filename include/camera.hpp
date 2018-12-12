@@ -22,20 +22,13 @@ namespace PLXSLAM
                 fx_ ( fx ), fy_ ( fy ), cx_ ( cx ), cy_ ( cy ), depth_scale_ ( depth_scale )
         {}
 
-        void world2camera(const Mat &p_w, const Mat &T_w_c, Mat p_c);
-        void camera2world(const Mat &p_c, const Mat &T_c_w, Mat p_w);
+        void world2camera(const Point3d &p_w, const Mat &R_c_w, const Mat& t_c_w, Point3d& p_c);
+        void camera2world(const Point3d &p_c, const Mat &R_c_w, const Mat& t_c_w, Point3d& p_w);
         //TODO use Mat or pt2d,pt3d?
-        void camera2pixel(const Mat );
-        void pixel2camera(const Mat &);
-        void pixel2world(const Mat);
-        void world2pixel();
-        // coordinate transform: world, camera, pixel
-//        Vector3d world2camera( const Vector3d& p_w, const SE3& T_c_w );
-//        Vector3d camera2world( const Vector3d& p_c, const SE3& T_c_w );
-//        Vector2d camera2pixel( const Vector3d& p_c );
-//        Vector3d pixel2camera( const Vector2d& p_p, double depth=1 );
-//        Vector3d pixel2world ( const Vector2d& p_p, const SE3& T_c_w, double depth=1 );
-//        Vector2d world2pixel ( const Vector3d& p_w, const SE3& T_c_w );
+        void camera2pixel(const Point3d& p_c, Point2f& p_p);
+        void pixel2camera(const Point2f &p_p, Point3d& p_c, double depth = 1);
+        void pixel2world(const Point2f& p_p, const Mat &R_c_w, const Mat& t_c_w, Point3d& p_w, double depth = 1);
+        void world2pixel(const Point3d&p_w, const Mat &R_c_w, const Mat& t_c_w, Point2f& p_p);
 
     };
 }

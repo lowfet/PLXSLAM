@@ -5,8 +5,8 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include "common_include.h"
-#include "camera.h"
+#include "common.hpp"
+#include "camera.hpp"
 
 namespace PLXSLAM
 {
@@ -19,16 +19,16 @@ namespace PLXSLAM
         typedef std::shared_ptr<Frame> Ptr;
         unsigned long                  id_;         // id of this frame
         double                         time_stamp_; // when it is recorded
-        Mat                            T_c_w_;      // transform from world to camera
+        Mat                            R_c_w_,t_c_w_;      // transform from world to camera
         Camera::Ptr                    camera_;     // Pinhole RGBD Camera model
-        Mat                            color_, depth_; // color and depth image
+        Mat                            color_, color_left_, color_right_, depth_; // color and depth image
 //         std::vector<cv::KeyPoint>      keypoints_;  // key points in image
 //         std::vector<MapPoint*>         map_points_; // associated map points
         bool                           is_key_frame_;  // whether a key-frame
 
     public: // data members
         Frame();
-        Frame( long id, double time_stamp=0, Mat T_c_w=Mat(), Camera::Ptr camera=nullptr, Mat color=Mat(), Mat depth=Mat() );
+        Frame( long id, double time_stamp=0, Mat R_c_w=Mat(), Mat t_c_w=Mat(), Camera::Ptr camera=nullptr, Mat color=Mat() );
         ~Frame();
 
         static Frame::Ptr createFrame();
@@ -36,13 +36,14 @@ namespace PLXSLAM
         // find the depth in depth map
         double findDepth( const cv::KeyPoint& kp );
 
-        // Get Camera Center
-        Vector3d getCamCenter() const;
-
-        void setPose( const SE3& T_c_w );
-
         // check if a point is in this frame
-        bool isInFrame( const Vector3d& pt_world );
+        bool isInFrame( const Point3d& pt_world );
+
+        // Get Camera Center
+        Mat getCamCenter() const;
+
+        void setPose( const Mat& R_c_w , const Mat& t_c_w );
+
     };
 
 }
